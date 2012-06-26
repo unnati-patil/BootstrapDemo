@@ -1,0 +1,51 @@
+<p id="notice" xmlns="http://www.w3.org/1999/html"><%= notice %></p>
+
+<div class="hero-unit">
+  <h1>Welcome</h1>
+    <p>Click <%= link_to 'Add Post ', post_add_my_posts_path %>to add new post  </p >
+
+</div>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th> Name        </th>
+    <th>Action </th>
+    <!--<th>Action2 </th>-->
+    <!--<th>Action3 </th>-->
+    <!--<th>Action4 </th>-->
+    <!--<th>Action5 </th>-->
+  </tr>
+  </thead>
+  <tbody>
+
+
+  <% @my_posts.each do |post|%>
+      <tr>
+        <td><%= post.name %></td>
+        <td>
+        <div class="btn-group">
+          <%= link_to 'Show Post',post_show_my_post_path(post), :class => "btn" %>
+          <%= link_to 'Edit Post',post_edit_my_post_path(post), :class => "btn"%>
+          <%= link_to 'Delete Post',post_delete_my_post_path(post), :method => :delete, :class => "btn"%>
+
+        </div>
+        </td>
+
+
+
+        <!--<td><%= link_to 'Add Comment',post_show_my_post_path(post)%> </td>-->
+        <!--<td><%= link_to 'Show Comment',post_show_my_post_path(post)%> </td>-->
+        <!-- <td><%= link_to 'Delete Comment',post_show_my_post_path(post)%> </td>       -->
+      </tr>
+  <% end %>
+
+  </tbody>
+</table>
+
+<br> <br>
+
+<ul class="pager">
+  <%= will_paginate @my_posts %>
+</ul>
+

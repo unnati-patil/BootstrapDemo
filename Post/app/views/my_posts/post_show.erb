@@ -1,0 +1,58 @@
+
+<p id = "notice" ><%= notice %></p>
+
+<table class="table table-striped">
+
+  <tr>
+<p>
+  <b>Name : </b>
+  <%= @my_post.name %>
+</p>
+<br>
+<p>
+  <b>Title : </b>
+  <%= @my_post.title %>
+</p>
+ <br>
+<p>
+  <b>Description : </b>
+  <%= @my_post.description %>
+</p>
+  <br>
+
+<div id = "abc" >
+  <%= render :partial => "comment"%>
+
+</div>
+   </tr>
+   <tr>
+ <br><br><br>
+<div class = "tabbable tabs-left " >
+<%= form_for( @my_post.comments.new, :url =>  add_comment_my_post_path) do |i| %>
+
+
+
+
+        <b><%= i.label :comment  %></b><br />
+        <%= i.text_area :comment, :rows => 3 %> <br>
+
+        <button id = "add_comment" data-loading-text = "Add Comment" class = "btn btn-primary">Add Comment</button>
+
+      <!--<input type = button value="Add Comment" id = "add_comment">-->
+      <!-- <%= i.submit %>  -->
+      <!--<button class="btn" data-toggle="button" value="Add Comment" id = "add_comment"></button>-->
+
+
+<% end %>
+ </div>
+
+
+    </tr>
+
+
+</table>
+
+<!--<br>-->
+<!--<%= link_to 'Back', root_path %>-->
+
+
